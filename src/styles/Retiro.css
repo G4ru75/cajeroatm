@@ -1,0 +1,857 @@
+/* ── Variables (heredadas del root) ── */
+
+.retiro-container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 32px 28px;
+}
+
+.prediccion-embebida {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.prediccion-embebida h2 {
+  margin-top: 6px;
+}
+
+/* ── Encabezado de transacción ── */
+.retiro-container h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #002a5c;
+  margin: 0 0 6px 0;
+  letter-spacing: 0.2px;
+}
+
+.retiro-subtitle {
+  font-size: 13px;
+  color: #5a6782;
+  margin: 0 0 28px 0;
+}
+
+/* ── Indicador de pasos ── */
+.pasos-indicador {
+  display: flex;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.paso-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #d0d8e8;
+  background: white;
+  color: #5a6782;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.paso-dot.activo {
+  background: #003d8f;
+  border-color: #003d8f;
+  color: white;
+}
+
+.paso-dot.completado {
+  background: #0a6640;
+  border-color: #0a6640;
+  color: white;
+}
+
+.paso-linea {
+  flex: 1;
+  height: 2px;
+  background: #d0d8e8;
+  margin: 0 4px;
+}
+
+.paso-linea.completada {
+  background: #0a6640;
+}
+
+/* ── Tarjeta de paso ── */
+.paso {
+  background: white;
+  padding: 28px;
+  border-radius: 8px;
+  border: 1px solid #d0d8e8;
+  box-shadow: 0 2px 10px rgba(0, 42, 92, 0.06);
+}
+
+.paso-titulo {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #003d8f;
+  margin: 0 0 20px 0;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #eef1f6;
+}
+
+/* ── Formularios ── */
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+  color: #1a2540;
+  font-size: 14px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 11px 14px;
+  font-size: 15px;
+  border: 1px solid #c5cfe0;
+  border-radius: 6px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: #fafbfd;
+  color: #1a2540;
+  box-sizing: border-box;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #003d8f;
+  box-shadow: 0 0 0 3px rgba(0, 61, 143, 0.1);
+  background: white;
+}
+
+.form-group small {
+  display: block;
+  margin-top: 5px;
+  color: #8a97b0;
+  font-size: 12px;
+}
+
+/* ── Botones ── */
+.button-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  flex: 1;
+  min-width: 120px;
+  padding: 11px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.3px;
+}
+
+.btn-primary {
+  background: #003d8f;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #002a5c;
+  box-shadow: 0 3px 10px rgba(0, 42, 92, 0.25);
+}
+
+.btn-primary:disabled {
+  background: #b0bcd0;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: white;
+  color: #5a6782;
+  border: 1px solid #c5cfe0;
+}
+
+.btn-secondary:hover {
+  background: #f4f7fc;
+  border-color: #003d8f;
+  color: #003d8f;
+}
+
+/* ── Caja de información de la transacción ── */
+.info-box {
+  background: #f4f7fc;
+  border: 1px solid #d0d8e8;
+  border-left: 3px solid #003d8f;
+  padding: 16px 20px;
+  border-radius: 6px;
+  margin-bottom: 22px;
+}
+
+.info-box p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #1a2540;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-box p strong {
+  color: #5a6782;
+  font-weight: 600;
+  min-width: 140px;
+}
+
+.clave-visible {
+  font-family: 'Courier New', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: #0a6640;
+  background: #e8f5ee;
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: 1px solid #a7d7b9;
+  letter-spacing: 4px;
+}
+
+.timer {
+  color: #b91c1c;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* ── Límites ── */
+.limites-info {
+  background: #fffaf0;
+  border: 1px solid #e9c46a;
+  border-left: 3px solid #c8973a;
+  padding: 14px 18px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.limites-info h4 {
+  margin: 0 0 8px 0;
+  color: #7a5c00;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+.limites-info p {
+  margin: 5px 0;
+  color: #7a5c00;
+  font-size: 13px;
+}
+
+.limites-info .disponible-hoy {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e9c46a;
+  font-size: 14px;
+}
+
+.limites-info .disponible-hoy strong {
+  color: #0a6640;
+}
+
+/* ── Montos rápidos ── */
+.montos-rapidos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.btn-monto {
+  padding: 13px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #c5cfe0;
+  background: white;
+  color: #1a2540;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.btn-monto:hover {
+  border-color: #003d8f;
+  color: #003d8f;
+  background: #f4f7fc;
+}
+
+.btn-monto.selected {
+  background: #003d8f;
+  color: white;
+  border-color: #003d8f;
+}
+
+/* ── Resultado ── */
+.resultado {
+  max-width: 100%;
+}
+
+.success-box {
+  background: #f0faf5;
+  border: 1px solid #a7d7b9;
+  border-left: 4px solid #0a6640;
+  padding: 22px 24px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.success-box h3 {
+  color: #0a6640;
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.success-box .success-fecha {
+  font-size: 12px;
+  color: #5a6782;
+  margin: 0 0 18px 0;
+}
+
+.success-box h4 {
+  color: #1a2540;
+  margin: 20px 0 12px 0;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-section {
+  background: white;
+  border: 1px solid #d0d8e8;
+  padding: 14px 18px;
+  border-radius: 6px;
+  margin: 14px 0;
+}
+
+.info-section p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #1a2540;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eef1f6;
+  padding-bottom: 8px;
+}
+
+.info-section p:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.info-section p strong {
+  color: #5a6782;
+  font-weight: 600;
+}
+
+/* ── Tabla de matriz de acarreo ── */
+.billetes-table {
+  overflow-x: auto;
+  margin: 12px 0;
+}
+
+.billetes-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  font-size: 13px;
+}
+
+.billetes-table th,
+.billetes-table td {
+  padding: 10px 12px;
+  text-align: center;
+  border-bottom: 1px solid #eef1f6;
+}
+
+.billetes-table td:first-child {
+  text-align: left;
+  color: #8a97b0;
+  font-size: 12px;
+}
+
+.billetes-table th {
+  background: #002a5c;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+.billetes-table th:first-child {
+  text-align: left;
+}
+
+.billetes-table tbody tr:hover {
+  background: #f4f7fc;
+}
+
+.billetes-table tfoot .total-row {
+  background: #eef3fb;
+  font-weight: 700;
+  border-top: 2px solid #003d8f;
+  color: #002a5c;
+}
+
+/* ── Predicción ── */
+.prediccion-box {
+  background: #fffaf0;
+  border: 1px solid #e9c46a;
+  border-left: 3px solid #c8973a;
+  padding: 16px 20px;
+  border-radius: 6px;
+  margin-top: 20px;
+}
+
+.prediccion-box h4 {
+  color: #7a5c00;
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.prediccion-text {
+  font-size: 14px;
+  color: #1a2540;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.inventario-info {
+  background: white;
+  border: 1px solid #d0d8e8;
+  padding: 14px 18px;
+  border-radius: 6px;
+  margin-top: 14px;
+}
+
+.inventario-info h5 {
+  margin: 0 0 10px 0;
+  color: #1a2540;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.inventario-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.inventario-info li {
+  padding: 7px 0;
+  border-bottom: 1px solid #eef1f6;
+  font-size: 13px;
+  color: #5a6782;
+  display: flex;
+  justify-content: space-between;
+}
+
+.inventario-info li:last-child {
+  border-bottom: none;
+}
+
+.total-disponible {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 2px solid #d0d8e8;
+  font-size: 14px;
+  font-weight: 700;
+  color: #002a5c;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .retiro-container {
+    padding: 20px 16px;
+  }
+
+  .paso {
+    padding: 20px 16px;
+  }
+
+  .montos-rapidos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+
+  .billetes-table {
+    font-size: 12px;
+  }
+
+  .billetes-table th,
+  .billetes-table td {
+    padding: 8px 6px;
+  }
+}
+
+.retiro-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.paso {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e0e0;
+}
+
+/* Formularios */
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #607d8b;
+}
+
+.form-group small {
+  display: block;
+  margin-top: 5px;
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+/* Botones */
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  flex: 1;
+  min-width: 120px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background: #607d8b;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #546e7a;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: #999;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #888;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Caja de información */
+.info-box {
+  background: #ecf0f1;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.info-box p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #2c3e50;
+}
+
+.clave-visible {
+  font-family: 'Courier New', monospace;
+  font-size: 24px;
+  font-weight: bold;
+  color: #2e7d32;
+  background: #e8f5e9;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.timer {
+  color: #c62828;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Información de límites */
+.limites-info {
+  background: #fef5e7;
+  border: 2px solid #f9b115;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.limites-info h4 {
+  margin: 0 0 10px 0;
+  color: #7d6608;
+  font-size: 16px;
+}
+
+.limites-info p {
+  margin: 6px 0;
+  color: #7d6608;
+  font-size: 14px;
+}
+
+.limites-info .disponible-hoy {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ffc107;
+  font-size: 15px;
+}
+
+.limites-info .disponible-hoy strong {
+  color: #2e7d32;
+}
+
+/* Montos rápidos */
+.montos-rapidos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.btn-monto {
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid #607d8b;
+  background: white;
+  color: #607d8b;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-monto:hover {
+  background: #f5f5f5;
+}
+
+.btn-monto.selected {
+  background: #607d8b;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Resultado */
+.resultado {
+  max-width: 100%;
+}
+
+.success-box {
+  background: #d5f4e6;
+  border: 2px solid #27ae60;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.success-box h3 {
+  color: #27ae60;
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.success-box h4 {
+  color: #2c3e50;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.info-section {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+}
+
+.info-section p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+/* Tabla de billetes */
+.billetes-table {
+  overflow-x: auto;
+  margin: 15px 0;
+}
+
+.billetes-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.billetes-table th,
+.billetes-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.billetes-table th {
+  background: #3498db;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.billetes-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.billetes-table tfoot .total-row {
+  background: #ecf0f1;
+  font-weight: bold;
+  border-top: 2px solid #3498db;
+}
+
+/* Predicción */
+.prediccion-box {
+  background: #fff3cd;
+  border: 2px solid #ffc107;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 25px;
+}
+
+.prediccion-box h4 {
+  color: #856404;
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.prediccion-text {
+  font-size: 16px;
+  color: #2c3e50;
+  margin: 15px 0;
+}
+
+.inventario-info {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.inventario-info h5 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.inventario-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.inventario-info li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ecf0f1;
+  font-size: 14px;
+}
+
+.inventario-info li:last-child {
+  border-bottom: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .retiro-container {
+    padding: 10px;
+  }
+
+  .paso {
+    padding: 20px;
+  }
+
+  .montos-rapidos {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+
+  .billetes-table {
+    font-size: 14px;
+  }
+}
