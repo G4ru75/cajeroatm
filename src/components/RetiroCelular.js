@@ -40,7 +40,14 @@ const RetiroCelular = ({ onVolver }) => {
   const validarCelular = (valor) => {
     // Solo números, máximo 10 dígitos
     const numeros = valor.replace(/\D/g, '');
-    return numeros.slice(0, 10);
+    const celularLimpio = numeros.slice(0, 10);
+
+    // Nequi: el número debe iniciar con 3
+    if (celularLimpio.length > 0 && celularLimpio[0] !== '3') {
+      return '';
+    }
+
+    return celularLimpio;
   };
 
   const handleCelularChange = (e) => {
@@ -49,10 +56,18 @@ const RetiroCelular = ({ onVolver }) => {
   };
 
   const handleContinuar = () => {
-    if (celular.length === 10) {
-      generarClave();
-      setPaso(2);
+    if (celular.length !== 10) {
+      alert('El número de celular debe tener exactamente 10 dígitos');
+      return;
     }
+
+    if (celular[0] !== '3') {
+      alert('El número de celular debe iniciar con 3');
+      return;
+    }
+
+    generarClave();
+    setPaso(2);
   };
 
   const handleContinuarAClave = () => {
@@ -144,12 +159,12 @@ const RetiroCelular = ({ onVolver }) => {
               maxLength={10}
               className="input-field"
             />
-            <small>{celular.length}/10 dígitos</small>
+            <small>{celular.length}/10 dígitos - Debe iniciar con 3</small>
           </div>
           <div className="button-group">
             <button 
               onClick={handleContinuar} 
-              disabled={celular.length !== 10}
+              disabled={celular.length !== 10 || celular[0] !== '3'}
               className="btn-primary"
             >
               Continuar

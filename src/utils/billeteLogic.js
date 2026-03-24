@@ -97,6 +97,9 @@ const calcularAcarreo = (monto, stock) => {
         fila[d] = 1;
         total += d;
         tempStock[d]--;
+
+
+        
         tieneAlguno = true;
       } else {
         fila[d] = 0;
